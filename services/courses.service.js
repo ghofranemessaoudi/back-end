@@ -1,3 +1,4 @@
+
 module.exports = new (class CoursesService {
   constructor() {
     this.course = require("../models/courses.model.js");
@@ -8,8 +9,8 @@ module.exports = new (class CoursesService {
   getOneCourse(course) {
     return this.course.findOne(course);
   }
-  addCourse() {
-    return this.course.create();
+  addCourse(obj) {
+    return this.course.create({title:obj.title,lecture:obj.lecture,homework:obj.homework});
   }
   updateCourse(id, course) {
     return this.course.findOneAndUpdate(id, course);

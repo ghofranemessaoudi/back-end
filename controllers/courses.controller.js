@@ -5,8 +5,10 @@ const coursesService = require("../services/courses.service.js");
 module.exports = {
   async getAllCourses(req, res, next) {
     try {
+      
       const courses = await coursesService.getAllCourses();
-      res.send(courses);
+      console.log(courses);
+      res.JSON(courses);
     } catch (error) {
       res.send("error");
     }
@@ -22,6 +24,7 @@ module.exports = {
   async addCourse(req, res, next) {
     try {
       const course = await coursesService.addCourse(req.body);
+      console.log(course);
       res.send(course);
     } catch (error) {
       res.send(error);
@@ -44,3 +47,6 @@ module.exports = {
     }
   }
 };
+
+
+
